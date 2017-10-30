@@ -1,0 +1,48 @@
+// Vendors
+//////////////////////////////////////////////////////
+
+// Bootstrap v3.3.7
+
+// Core variables and mixins
+@import "../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/variables";
+@import "utils/variables"; //override bootstrap variables
+@import "../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/mixins";
+@import "utils/mixins"; //override bootstrap mixins
+
+// Reset and dependencies
+@import "../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/normalize";
+
+// Core CSS
+@import "../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/type";
+@import "../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/grid";
+@import "../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/forms";
+@import "../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/buttons";
+
+// Components
+@import "../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/component-animations";
+
+// Components JavaScript
+@import "../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/modals";
+@import "../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/tooltip";
+
+// Utility classes
+@import "../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/utilities";
+@import "../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/responsive-utilities";
+
+
+// Custom
+//////////////////////////////////////////////////////
+
+// Utils
+@import "utils/placeholders";
+
+// Core
+@import "core/base";
+@import "core/typography";
+
+// Components
+@import "components/bootstrap";
+
+// Pages
+@import "pages/landing";
+

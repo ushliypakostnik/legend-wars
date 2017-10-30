@@ -1,0 +1,289 @@
+// Bootsrap Customize
+//////////////////////////////////////////////////////
+
+// Кнопки
+.btn {
+    border: none;
+    text-decoration: none;
+    text-transform: uppercase;
+    @include text($sans-font-family, $font-size-normal, $sans-bold-font-weight);
+
+    &:active {
+        @include box-shadow-inset-custom($shadow-coords-x, $shadow-coords-y, $shadow-size, $shadow-stretch, $shadow-color);
+    }
+    &.btn-lg {
+        @include border-radius(22px);
+        @include text($sans-font-family, $font-size-small, $sans-bold-font-weight);
+    }
+    &.btn-sm {
+        padding: $padding-small-vertical-custom $padding-small-horizontal-custom;
+        @include border-radius($border-radius-small);
+        @include text($sans-font-family, $font-size-small, $sans-bold-font-weight);
+    }
+    &.btn-xs {
+        @include border-radius($border-radius-xs);
+        @include text($sans-font-family, $font-size-xsmall, $sans-bold-font-weight);
+    }
+}
+
+// Выключенные кнопки
+.btn.disabled, .btn[disabled], fieldset[disabled] .btn {
+    @include opacity(0.5);
+}
+
+// Поля ввода
+
+.form-control {
+    border: $border-width solid $input-border;
+    line-height: 58px;
+    height: 58px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+    @include border-radius($border-radius-large);
+    @include text($sans-font-family, $font-size-normal, $sans-regular-font-weight);
+    @include box-shadow-custom(0, 0, 0, 0, transparent);
+    @include transition(border-color $transition-duration $transition-timing-function $transition-delay);
+
+    &:focus {
+        @include box-shadow-custom(0, 0, 0, 0, transparent);
+    }
+
+    &:active, &:focus {
+        outline: none !important;
+        border: $border-width solid $input-border-focus;
+    }
+
+    &.input-lg {
+        line-height: $input-height-large;
+        @include border-radius($border-radius-large);
+        @include text($sans-font-family, $font-size-large, $sans-bold-font-weight);
+    }
+
+    &.input-sm {
+        line-height: $input-height-small;
+        @include border-radius($border-radius-xs);
+    }
+}
+
+// Component animations
+.fade {
+    @include transition(opacity $transition-duration linear);
+}
+
+
+// Modals
+//////////////////////////////////////////////////////
+
+.modal-backdrop {
+    z-index: $panel-layout + 50;
+    background: rgba(16, 17, 21, 0.5);
+}
+
+// Модальное окно
+.modal {
+    $image-path: $image-path + 'pieces/';
+
+    z-index: $popup-layout;
+
+    &.fade .modal-dialog {
+        @include prefix(transform, translate(0, -25%), webkit moz ms o);
+    }
+
+    &.in .modal-dialog {
+        @include prefix(transform, translate(0, 0), webkit moz ms o);
+    }
+
+    .modal-dialog {
+
+        .modal-content {
+            background: transparent;
+            border: none;
+            margin: 0 auto;
+            text-align: center;
+            @include border-radius($border-radius-large * 2);
+            @include box-shadow-custom($shadow-coords-x, $shadow-coords-y, $shadow-size, $shadow-stretch, $shadow-color);
+
+            .modal-header {
+                position: relative;
+                border-bottom: none;
+                @include border-radius($border-radius-large $border-radius-large 0 0);
+
+                .modal-title {
+                    @include text($sans-font-family, $font-size-normal, $sans-regular-font-weight);
+                    color: $white;
+                }
+
+                .close {
+                    position: absolute;
+                    top: 15px;
+                    right: 15px;
+                    display: block;
+                    background: url("#{$image-path}close.png") 0 0 no-repeat;
+                    @include size(14px, 15px);
+                }
+            }
+
+            .modal-body {
+                background: $white;
+                padding-top: $size;
+                padding-bottom: $size;
+                padding-left: $size / 2;
+                padding-right: $size / 2;
+                @include border-radius(0);
+            }
+
+            .modal-footer {
+                background: $white;
+                border-top: none;
+                text-align: center;
+                @include border-radius(0 0 $border-radius-large $border-radius-large);
+
+                .btn + .btn {
+                    margin-left: 0;
+                }
+            }
+        }
+
+        &.start-modal {
+            width: 615px;
+
+            @include not-lg {
+                display: none;
+            }
+
+            .modal-content {
+
+                .modal-header {
+                    padding: 0;
+                    height: 45px;
+                    background: $white;
+                }
+
+                .modal-body {
+                    padding: 0 ($size * 1.5);
+
+                    .form-wrapper {
+                        padding: 0 ($size / 2);
+                    }
+
+                    .row > div {
+                        padding-bottom: 25px;
+                        @include border-radius($border-radius-large * 2);
+
+                        &.infocus {
+                            background: $gray-light;
+                        }
+                    }
+
+                    h4 {
+                        color: $blue-01;
+                        text-transform: uppercase;
+                        margin-top: 9px;
+                        margin-bottom: 35px;
+                        @include text($sans-font-family, 21px, $sans-bold-font-weight);
+                        letter-spacing: 1px;
+                    }
+
+                    .form-control {
+                            @include text($sans-font-family, 18px, $sans-regular-font-weight);
+                    }
+
+                    .password-block {
+                        position: relative;
+                        text-align: left;
+                        margin-top: -10px;
+                        margin-bottom: 12px;
+
+                        .checkbox {
+                            margin: 0;
+
+                            input {
+                                visibility: hidden;
+                            }
+
+                            .custom-check {
+                                position: absolute;
+                                top: 5px;
+                                left: 0;
+                                background: url("#{$image-path}checkbox-off.png") 0 0 no-repeat;
+                                @include size(12px, 12px);
+                            }
+
+                            &.checked {
+                                .custom-check {
+                                    background: url("#{$image-path}checkbox-on.png") 0 0 no-repeat;
+                                }
+                            }
+                        }
+
+                        a {
+                            position: absolute;
+                            top: 0;
+                            right: 0;
+                            @include link-style($text-color, $text-color);
+                        }
+                    }
+
+                    .social-block {
+                        position: relative;
+                        text-align: left;
+                        margin-bottom: 15px;
+                        height: 34px;
+
+                        .facebook {
+                            display: inline-block;
+                            background: url("#{$image-path}facebook.png") $facebook-color-02 50% 50% no-repeat;
+                            @include border-radius($border-radius-large);
+                            @include size(169px, 34px);
+                        }
+
+                        .vk {
+                            position: absolute;
+                            top: 0;
+                            right: 0;
+                            background: url("#{$image-path}vk.png") $vk-color 50% 50% no-repeat;
+                            @include border-radius($border-radius-large);
+                            @include size(64px, 34px);
+                        }
+                    }
+
+                    .btn {
+                        width: 193px;
+                        margin-top: 28px;
+                        @include btn-color($white, $blue-01);
+                        @include text($sans-font-family, 15px, $sans-bold-font-weight);
+                        line-height: 24px;
+                    }
+                }
+
+                .modal-footer {
+                    padding: 35px 0 25px;
+                    @include text($sans-font-family, 15px, $sans-regular-font-weight);
+                    line-height: 18px;
+                    letter-spacing: 0.7px;
+
+                    a {
+                        @include text($sans-font-family, 15px, $sans-regular-font-weight);
+                        line-height: 18px;
+                        letter-spacing: 0.7px;
+                        @include link-style($text-color, $text-color);
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Подсказки
+.tooltip {
+    .tooltip-inner {
+        padding: ($model-pixel * 10) ($model-pixel * 30);
+        background: $white;
+        color: $black;
+        text-transform: uppercase;
+        @include border-radius($border-radius-small);
+        @include box-shadow-custom($shadow-coords-x, ($shadow-coords-y / 2), $shadow-size, $shadow-stretch, fade-out($black, 0.75));
+        @include text($sans-font-family, $font-size-small, $sans-bold-font-weight);
+    }
+}

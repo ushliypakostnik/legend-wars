@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <title>{{ title }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+
+    <script>
+        var ieVersion = (function() {
+            var ua = window.navigator.userAgent;
+            var msie = ua.indexOf('MSIE');
+            if (msie > 0) {
+                return parseInt (ua.substring(msie + 5, ua.indexOf('.', msie)));
+            }
+            return 0;
+        })();
+        if (ieVersion && ieVersion < 9) {
+            location.href = './legacy.html';
+        }
+    </script>
+
+    <link href="./css/main{{ ".min" if NODE_ENV == "production" else "" }}.css" rel="stylesheet" type="text/css" />
+
+    <!--[if lt IE 10]>
+        <script src="./js/respond{{ ".min" if NODE_ENV == "production" else "" }}.js"></script>
+    <![endif]-->
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,800&amp;subset=cyrillic" rel="stylesheet">
+
+    <link href="./img/favicon.jpg" rel="icon" type="image/jpeg" />
+</head>
+<body>
+
+    <!-- page content -->
+
+    {% block template %}
+    <div class="page">
+    {% endblock %}
+
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <!-- modals -->
+
+    {% block modals %}
+    <div class="modal fade" id="start-modal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog start-modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title">Название модали</h3>
+                    <a href="#" class="close" data-dismiss="modal" aria-label="Close"></a>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="form-wrapper">
+                                <h4>Register</h4>
+                                <form class="form">
+                                    <input type="text" class="form-control" id="regFocusControl" placeholder="E-mail" />
+                                    <input type="text" class="form-control" placeholder="Password" />
+                                    <input type="text" class="form-control" placeholder="Confirm password" />
+                                    <a href="#" class="btn btn-lg">Create account</a>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-wrapper">
+                                <h4>Log in</h4>
+                                <form class="form">
+                                    <input type="text" class="form-control" id="logFocusControl" placeholder="E-mail" />
+                                    <input type="text" class="form-control" placeholder="Password" />
+                                    <div class="password-block">
+                                        <div class="checkbox">
+                                            <label>
+                                                <div class="custom-check"></div>
+                                                <input type="checkbox" />Remember me
+                                            </label>
+                                        </div>
+                                        <a href="#">Forgot?</a>
+                                    </div>
+                                    <div class="social-block">
+                                        <a href="#" class="facebook"></a>
+                                        <a href="#" class="vk"></a>
+                                    </div>
+                                    <a href="#" class="btn btn-lg">Login</a>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    By regestering on this website, you agree to <a href="#">Eula</a> and <a href="#">Privacy Policy</a>.<br />By creating account in this game you agree to <a href="#">game rules</a>.
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
+
+    <!-- /modals -->
+
+    <!-- /page content -->
+
+    <script src="./js/app{{ ".min" if NODE_ENV == "production" else "" }}.js"></script>
+
+    <script>var debug = {{ "false" if NODE_ENV == "production" else "true" }};</script>
+
+    <script>
+        {% block scripts %}
+        DesignLayout.init({
+            debug: debug
+        });
+        {% endblock %}
+    </script>
+
+    {% if LIVERELOAD %}
+        <script src="//127.0.0.1:35729/livereload.js"></script>
+    {% endif %}
+</body>
+</html>

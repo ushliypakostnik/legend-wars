@@ -1,0 +1,231 @@
+// Project mixins
+//////////////////////////////////////////////////////
+
+
+// Media
+
+@mixin lg {
+    @media (min-width: ($screen-lg)) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media (min-width: ($screen-lg)) {
+        @content;
+    }
+}
+
+@mixin lg-and-md {
+    @media (min-width: ($screen-md)) {
+        @content;
+    }
+}
+
+@mixin not-lg {
+    @media (max-width: $screen-md-max) {
+        @content;
+    }
+}
+
+@mixin not-lg-and-md {
+    @media (max-width: $screen-sm-max) {
+        @content;
+    }
+}
+
+@mixin md {
+    @media (min-width: $screen-md) and (max-width: $screen-md-max) {
+        @content;
+    }
+}
+
+@mixin sm {
+    @media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
+        @content;
+    }
+}
+
+@mixin sm-and-md {
+    @media (min-width: $screen-sm) and (max-width: $screen-md-max) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media (min-width: $screen-sm) and (max-width: $screen-md-max) {
+        @content;
+    }
+}
+
+@mixin sm-and-xs {
+    @media (max-width: $screen-sm-max) {
+        @content;
+    }
+}
+
+@mixin tablet-and-mobile {
+    @media (max-width: $screen-sm-max) {
+        @content;
+    }
+}
+
+@mixin not-xs {
+    @media (min-width: $screen-sm) {
+        @content;
+    }
+}
+
+@mixin xs {
+    @media (max-width: $screen-xs-max) {
+        @content;
+    }
+}
+
+@mixin mobile {
+    @media (max-width: $screen-xs-max) {
+        @content;
+    }
+}
+
+@mixin min {
+    @media (max-width: $screen-xs) {
+        @content;
+    }
+}
+
+@mixin gadget-horizontal {
+    @media (max-width: $screen-md-max) and (orientation: landscape) {
+        @content;
+    }
+}
+
+@mixin gadget-vertical {
+    @media (max-width: $screen-md-max) and (orientation: portrait) {
+        @content;
+    }
+}
+
+// Retina
+@mixin retina {
+    @media only screen and (-Webkit-min-device-pixel-ratio: 1.5),
+    only screen and (-moz-min-device-pixel-ratio: 1.5),
+    only screen and (-o-min-device-pixel-ratio: 3/2),
+    only screen and (min-device-pixel-ratio: 1.5) {
+        @content;
+    }
+}
+
+// Lare retina (для таких устройств имеет смысл увеличивать типографику смотрите _typography.scss Typographic Mixin)
+@mixin retina-large {
+    @media (min-width: $screen-sm) and (-Webkit-min-device-pixel-ratio: 1.5),
+    (min-width: $screen-sm) and (-moz-min-device-pixel-ratio: 1.5),
+    (min-width: $screen-sm) and (-o-min-device-pixel-ratio: 3/2),
+    (min-width: $screen-sm) and (min-device-pixel-ratio: 1.5) {
+        @content;
+    }
+}
+
+
+// Elements
+
+// Примесь для покраски кнопок
+@mixin btn-color($color, $background) {
+    background-color: $background;
+    color: $color;
+    @include transition(background $transition-duration $transition-timing-function $transition-delay);
+
+    &:hover, &:active {
+        background-color: darken($background, $fade );
+        color: $color;
+    }
+
+    @include tablet-and-mobile {
+        &, &:hover, &:focus {
+            background-color: $background;
+            color: $color;
+        }
+        &:active {
+            background-color: darken($background, $fade);
+            color: $color;
+        }
+    }
+}
+
+// Примесь для покраски ссылок
+@mixin link-style($color, $color-hover) {
+    text-decoration: underline;
+    @include transition(color $transition-duration $transition-timing-function $transition-delay);
+
+    &, &:focus {
+        color: $color;
+    }
+    &:hover, &:active {
+        text-decoration: none;
+        color: $color-hover;
+    }
+
+    @include tablet-and-mobile {
+        &, &:hover, &:focus {
+           color: $color;
+        }
+        &:active {
+            color: $color-hover;
+        }
+    }
+}
+
+
+// Effects
+
+// Opacity
+@mixin opacity($value){
+  $IEValue: $value * 100;
+  opacity: $value;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity="+$IEValue+")";
+  filter: alpha(opacity=$IEValue);
+}
+
+// Скругление
+@mixin border-radius($border-radius...) {
+    @include prefix(border-radius, $border-radius, webkit moz ms o);
+}
+
+@mixin box-shadow-custom($shadow-coords-x, $shadow-coords-y, $shadow-size, $shadow-stretch, $shadow-color) {
+    box-shadow: $shadow-coords-x $shadow-coords-y $shadow-size $shadow-stretch $shadow-color;
+        -moz-box-shadow: $shadow-coords-x $shadow-coords-y $shadow-size $shadow-stretch $shadow-color;
+            -webkit-box-shadow: $shadow-coords-x $shadow-coords-y $shadow-size $shadow-stretch $shadow-color;
+                filter: progid:DXImageTransform.Microsoft.shadow(direction=0, color=$shadow-color, strength=$shadow-coords-y);
+}
+
+@mixin box-shadow-inset-custom($shadow-coords-x, $shadow-coords-y, $shadow-size, $shadow-stretch, $shadow-color) {
+    box-shadow: inset $shadow-coords-x $shadow-coords-y $shadow-size $shadow-stretch $shadow-color;
+        -moz-box-shadow: inset $shadow-coords-x $shadow-coords-y $shadow-size $shadow-stretch $shadow-color;
+            -webkit-box-shadow: inset $shadow-coords-x $shadow-coords-y $shadow-size $shadow-stretch $shadow-color;
+                filter: progid:DXImageTransform.Microsoft.shadow(direction=0, color=$shadow-color, strength=$shadow-coords-y);
+}
+
+@mixin selection($color) {
+    ::selection {background: $color;}
+        ::-moz-selection {background: $color;}
+            ::-webkit-selection {background: $color;}
+}
+
+
+// Help
+
+// Mixin to prefix a property
+// @author Hugo Giraudel
+//
+// @param {String} $property - Property name
+// @param {*} $value - Property value
+// @param {List} $prefixes (()) - List of prefixes to print
+//
+@mixin prefix($property, $value, $prefixes: ()) {
+    @each $prefix in $prefixes {
+        #{'-' + $prefix + '-' + $property}: $value;
+    }
+
+    // Output standard non-prefixed declaration
+    #{$property}: $value;
+}

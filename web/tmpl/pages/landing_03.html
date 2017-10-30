@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block template %}
+<div class="page landing soon">
+{% endblock %}
+
+{% block content %}
+    <div class="back"></div>
+
+    <header role="banner">
+        <nav role="navigation" role="menu">
+            <!-- Класс .active для активного пункта меню!!! -->
+            <a href="#" class="logo" role="menuitem"></a
+            ><a href="#" class="menu-item active" role="menuitem">The Game</a
+            ><a href="#" class="menu-item" role="menuitem">Community</a
+            ><a href="#" class="menu-item" role="menuitem">Support</a>
+            <div class="pull-right">
+                <a href="#" class="btn btn-sm join-modal-trigger" role="menuitem">Join now</a
+                ><a href="#" class="menu-item login-modal-trigger" role="menuitem">Log in</a>
+            </div>
+        </nav>
+    </header>
+
+    <main role="main">
+        <div class="stars"></div>
+        <div class="logo"></div>
+        <h4 class="hidden-xs hidden-sm hidden-md spacing-item">work in progress...<br />this section will be available soon</h4>
+        <h2 class="hidden-lg">sorry, my lord...</h2>
+        <div class="desktop"></div>
+        <h3 class="hidden-lg">ONLY BROWSER OR PC</h3>
+        <a href="#" class="play-button">Play free</a>
+        <a href="#" class="how-to-play">How to play<span class="icon-how"></span></a>
+    </main>
+
+    <div class="bottom-back">
+        <div class="heroes"></div>
+        <div class="clouds"></div>
+    </div>
+
+    <footer role="contentinfo">
+        <div class="facebook-stat"></div>
+        <address>
+            <div>© 2017</div
+            ><div class="logo"></div
+            ><div class="spacing-item">All Rights Reserved</div
+            ><a href="#" class="spacing-item">Privacy policy</a
+            ><a href="#">Terms of use</a>
+        </address>
+    </footer>
+{% endblock %}
+
+{% block modals %}
+    {{ super() }}
+{% endblock %}
+
+{% block scripts %}
+    {{ super() }}
+{% endblock %}

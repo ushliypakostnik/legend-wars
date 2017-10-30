@@ -1,0 +1,472 @@
+// Лендинг
+//////////////////////////////////////////////////////
+
+.landing {
+
+    $image-path: $image-path + 'landing/';
+
+    .back {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: $body-layout - 500;
+        background: url("#{$image-path}background.jpg") 50% 0 no-repeat;
+        background-size: cover;
+        @include size(100%, 100%);
+    }
+
+    header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: $fixed-layout;
+        padding-top: $model-pixel * 21;
+        padding-left: $model-pixel * 38;
+
+        a {
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        .logo {
+            background: url("#{$image-path}rockstone-logo-big.png") 0 0 no-repeat;
+            background-size: cover;
+            margin-right: $model-pixel * 37;
+            @include size($model-pixel * 266, $model-pixel * 30);
+        }
+
+        .menu-item {
+            margin-left: $model-pixel * 38;
+            margin-top: $model-pixel * 4;
+            color: $white;
+            text-transform: uppercase;
+            @include text($sans-font-family, $font-size-small, $sans-bold-font-weight);
+            letter-spacing: $model-pixel * 0.75;
+            @include opacity(0.5);
+
+            &.active {
+                @include opacity(1);
+            }
+        }
+
+        .btn-sm {
+            @include btn-color($blue-01, $white);
+        }
+
+        .pull-right {
+            padding-right: $model-pixel * 40;
+
+            .btn-sm {
+                margin-right: $model-pixel * 10;
+            }
+
+            .top-menu-tooltip {
+                position: relative;
+                padding-right: $model-pixel * 25;
+
+                .custon-caret {
+                    position: absolute;
+                    top: $model-pixel * 8;
+                    right: 0;
+                    background: url("#{$image-path}caret.png") 100% 0 no-repeat;
+                    background-size: cover;
+                    @include size($model-pixel * 17, $model-pixel * 10);
+                }
+            }
+        }
+    }
+
+    main {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: $body-layout;
+        text-align: center;
+
+        .stars {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            right: 0;
+            margin: ($model-pixel * 90) auto 0;
+            background: url("#{$image-path}stars.png") 50% 0 no-repeat;
+            background-size: cover;
+            @include prefix(transform, translateX(-50%), webkit moz ms o);
+            @include size($model-pixel * 1730, $model-pixel * 264);
+        }
+
+        .logo {
+            margin: ($model-pixel * 98) auto 0;
+            background: url("#{$image-path}logo.png") 0 0 no-repeat;
+            background-size: cover;
+            @include size($model-pixel * 219, $model-pixel * 100);
+        }
+
+        h2, h3, h4 {
+            text-align: center;
+            margin: 0;
+        }
+        h2 {
+            text-transform: uppercase;
+            letter-spacing: $model-pixel * 3;
+            margin-top: $model-pixel * 73;
+        }
+        h3 {
+            margin-top: $model-pixel * 29;
+            letter-spacing: $model-pixel * 0.85;
+        }
+        h4 {
+            text-transform: uppercase;
+            margin-top: $model-pixel * 568;
+            @include text($sans-font-family, $model-pixel * 24, $sans-bold-font-weight);
+            letter-spacing: $model-pixel * 1.4;
+        }
+
+        .desktop {
+            display: none;
+        }
+
+        .play-button {
+            display: block;
+            margin: ($model-pixel * 20) auto 0;
+            background: url("#{$image-path}play-button.png") 0 0 no-repeat;
+            background-size: cover;
+            color: $white;
+            text-transform: uppercase;
+            margin-top: $model-pixel * 98;
+            text-shadow: 2px 2px 3px $black;
+            @include size($model-pixel * 333, $model-pixel * 94);
+            @include text($sans-font-family, $model-pixel * 35, $sans-bold-font-weight);
+            letter-spacing: $model-pixel * 2;
+            line-height: $model-pixel * 94;
+        }
+
+        .how-to-play {
+            display: inline-block;
+            position: relative;
+            color: $white;
+            text-transform: uppercase;
+            padding-right: $model-pixel * 42;
+            margin-top: $model-pixel * 12;
+            @include text($sans-font-family, $model-pixel * 21, $sans-bold-font-weight);
+
+            .icon-how {
+                display: block;
+                position: absolute;
+                top: $model-pixel * 4;
+                right: 0;
+                background: url("#{$image-path}how.png") 100% 0 no-repeat;
+                background-size: cover;
+                @include size($model-pixel * 20, $model-pixel * 20);
+            }
+        }
+    }
+
+    .bottom-back {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: $body-layout - 300;
+        @include size(100%, 100%);
+
+        .heroes {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: url("#{$image-path}heroes.png") 50% 0 no-repeat;
+            background-size: cover;
+            left: 50%;
+            @include prefix(transform, translateX(-50%), webkit moz ms o);
+            @include size($model-pixel * 1082, $model-pixel * 626);
+        }
+
+        .clouds {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: url("#{$image-path}clouds.png") 50% 100% no-repeat;
+            background-size: contain;
+            @include size(100%, 100%);
+        }
+    }
+
+    footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: $body-layout + 100;
+        text-align: center;
+        @include size(100%, $model-pixel * 80);
+
+        .facebook-stat {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: $model-pixel * 50;
+            margin: 0 auto;
+            background: $facebook-color-01;
+            @include border-radius(5px);
+            @include size(100px, 24px);
+        }
+
+        address {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: $model-pixel * 8;
+            margin: 0 auto;
+
+            div, .logo, a {
+                display: inline-block;
+                vertical-align: top;
+                color: $black;
+                text-transform: uppercase;
+                @include text($sans-font-family, $font-size-xsmall, $sans-bold-font-weight);
+                letter-spacing: $model-pixel;
+            }
+
+            .logo {
+                margin-top: $model-pixel * 3;
+                background: url("#{$image-path}rockstone-logo-min.png") 0 0 no-repeat;
+                background-size: cover;
+                margin-left: $model-pixel * 5;
+                margin-right: $model-pixel * 15;
+                @include size($model-pixel * 131, $model-pixel * 14);
+            }
+
+            .spacing-item {
+                margin-right: $model-pixel * 20;
+            }
+        }
+    }
+
+    @include not-lg {
+        header {
+            display: none;
+        }
+
+        main {
+
+            .play-button, .how-to-play {
+                display: none;
+            }
+        }
+
+        footer {
+            height: auto;
+
+            .facebook-stat {
+                display: none;
+            }
+        }
+    }
+
+    @include gadget-horizontal {
+
+        .back {
+            @include retina {
+                background: url("#{$image-path}background__h.jpg") 50% 0 no-repeat;
+                background-size: cover;
+            }
+        }
+
+        main {
+
+            .stars {
+                @include retina {
+                    margin: ($model-pixel * 218) auto 0;
+                    background: url("#{$image-path}stars__h.png") 50% 0 no-repeat;
+                    background-size: cover;
+                    @include size($model-pixel * 1300, $model-pixel * 334);
+                }
+            }
+
+            .logo {
+                margin: ($model-pixel * 230) auto 0;
+                @include size($model-pixel * 329, $model-pixel * 150);
+
+                @include retina {
+                    background: url("#{$image-path}logo__h.png") 0 0 no-repeat;
+                    background-size: cover;
+                }
+            }
+
+            h2 {
+                font-size: $model-pixel * 49;
+                margin-top: $model-pixel * 35;
+            }
+            h3 {
+                text-transform: uppercase;
+                font-size: $model-pixel * 30;
+                font-weight: $sans-bold-font-weight;
+                margin-top: $model-pixel * 12;
+            }
+        }
+
+        .bottom-back {
+
+            .heroes {
+                @include retina {
+                    background: url("#{$image-path}heroes__h.png") 50% 0 no-repeat;
+                    background-size: cover;
+                }
+            }
+
+            .clouds {
+                background-size: contain;
+
+                @include retina {
+                    background: url("#{$image-path}clouds__h.png") 50% 100% no-repeat;
+                    background-size: contain;
+                }
+            }
+        }
+
+        footer {
+
+            address {
+                @include text($sans-font-family, $model-pixel * 22, $sans-bold-font-weight);
+                bottom: 0;
+
+                div, .logo, a {
+                    @include text($sans-font-family, $model-pixel * 22, $sans-bold-font-weight);
+                }
+
+                .logo {
+                    margin-top: $model-pixel * 2;
+                    @include size($model-pixel * 178, $model-pixel * 19);
+
+                    @include retina {
+                        background: url("#{$image-path}rockstone-logo__h.png") 0 0 no-repeat;
+                        background-size: cover;
+                    }
+                }
+
+                .spacing-item {
+                    margin-right: $model-pixel * 30;
+                }
+            }
+        }
+    }
+
+    @include gadget-vertical {
+
+        .back {
+            @include retina {
+                background: url("#{$image-path}background__v.jpg") 50% 0 no-repeat;
+                background-size: cover;
+            }
+        }
+
+        main {
+
+            .stars {
+                @include retina {
+                    margin: ($model-pixel * 218) auto 0;
+                    background: url("#{$image-path}stars__v.png") 50% 0 no-repeat;
+                    background-size: cover;
+                    @include size($model-pixel * 1300, $model-pixel * 334);
+                }
+            }
+
+            .logo {
+                margin: ($model-pixel * 140) auto 0;
+                @include size($model-pixel * 200, $model-pixel * 91);
+
+                @include retina {
+                    background: url("#{$image-path}logo__v.png") 0 0 no-repeat;
+                    background-size: cover;
+                }
+            }
+
+            .desktop {
+                display: block;
+                margin: ($model-pixel * 40) auto 0;
+                background: url("#{$image-path}desktop.png") 50% 0 no-repeat;
+                background-size: cover;
+                @include size($model-pixel * 140, $model-pixel * 134);
+            }
+
+            h2 {
+                font-size: $model-pixel * 28;
+                margin-top: $model-pixel * 58;
+            }
+            h3 {
+                text-transform: uppercase;
+                font-size: $model-pixel * 17;
+                font-weight: $sans-bold-font-weight;
+                margin-top: $model-pixel * 48;
+            }
+        }
+
+        .bottom-back {
+
+            .heroes {
+                @include retina {
+                    background: url("#{$image-path}heroes__v.png") 50% 0 no-repeat;
+                    background-size: cover;
+                    @include size($model-pixel * 550, $model-pixel * 398);
+                }
+            }
+
+            .clouds {
+                background-size: contain;
+
+                @include retina {
+                    background: url("#{$image-path}clouds__v.png") 50% 100% no-repeat;
+                    background-size: contain;
+                }
+            }
+        }
+
+        footer {
+
+            address {
+                @include text($sans-font-family, $model-pixel * 12, $sans-bold-font-weight);
+
+                div, .logo, a {
+                    @include text($sans-font-family, $model-pixel * 12, $sans-bold-font-weight);
+                }
+
+                .logo {
+                    margin-top: 0;
+                    @include size($model-pixel * 94, $model-pixel * 10);
+
+                    @include retina {
+                        background: url("#{$image-path}rockstone-logo__v.png") 0 0 no-repeat;
+                        background-size: cover;
+                    }
+                }
+
+                .spacing-item {
+                    margin-right: $model-pixel * 28;
+                }
+            }
+        }
+    }
+
+    &.soon {
+        @include lg {
+            main {
+                .logo,
+                .play-button, .how-to-play {
+                    display: none;
+                }
+            }
+
+            .bottom-back,
+            footer {
+                display: none;
+            }
+        }
+    }
+}

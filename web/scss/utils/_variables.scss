@@ -1,0 +1,136 @@
+// Project variables
+//////////////////////////////////////////////////////
+
+$image-path: "../img/";
+
+$fade: 8%;
+
+$size: 20px;
+
+$model-pixel: 0.1027vh;
+
+
+// Colors
+//////////////////////////////////////////////////////
+
+$white: #fff;
+$black: #000;
+
+$text-color: $black;
+
+$background-color: #0b0d0c;
+
+$gray-light: #f0f0f0;
+$gray-01: #959595;
+$gray-02: #717171;
+
+$blue: #0b93e1;
+
+$blue-01: #0b93e1;
+$blue-02: #237bc6;
+
+$main-color: $white;
+
+$active-color: $blue-02;
+
+$light-color: $gray-lighter;
+
+$border-color: darken($light-color, ($fade * 2));
+
+$disabled-color: darken($light-color, ($fade * 4));
+
+$shadow-color: $black;
+$text-shadow-color: $black;
+
+$color-placeholder: $disabled-color;
+
+$facebook-color-01: #4267b2;
+$facebook-color-02: #3b5998;
+
+$vk-color: #45668e;
+
+
+// Grid and Sizes
+//////////////////////////////////////////////////////
+
+// Bootstrap Grid Gutter
+$grid-gutter-width: $size;
+
+// Layouts z-indexes
+$body-layout: 900;
+$fixed-layout: 1200;
+$overlay-layout: 1300;
+$panel-layout: 1400;
+$popup-layout: 1500;
+
+// Брекпоинт между мониторами и очень большими мониторами
+$large-desktop-breackpoint: 1700px;
+
+// Брекпоинт между гаджетами и остальными экранами
+$mobile-breackpoint: $screen-xs-max;
+
+$border-width: 2px;
+
+
+// Effects
+//////////////////////////////////////////////////////
+
+$transition-duration: 0.3s;
+$transition-timing-function: ease-out;
+$transition-delay: 0s;
+
+$shadow-coords-x: 0;
+$shadow-coords-y: 1px;
+$shadow-size: 8px;
+$shadow-stretch: -1px;
+
+$text-shadow-coords-x: 0;
+$text-shadow-coords-y: 1px;
+$text-shadow-size: 4px;
+
+
+// Override Bootstrap variables
+//////////////////////////////////////////////////////
+
+$link-color: $main-color;
+$link-hover-color: darken($link-color, $fade);
+
+$border-radius-base: 0;
+$border-radius-xs: 2px;
+$border-radius-small: $model-pixel * 17;
+$border-radius-large: 5px;
+
+$input-color-placeholder: $gray-02;
+$input-color: $text-color;
+$input-bg: $white;
+$input-border: $gray-01;
+$input-border-focus: $active-color;
+
+$modal-backdrop-opacity: 1;
+$modal-backdrop-bg: fade-out($white, 0.3);
+$modal-lg: $screen-sm - ($size * 2);
+$modal-md: $modal-lg;
+$modal-inner-padding: $size / 2;
+$modal-title-padding: $modal-inner-padding;
+
+$padding-base-vertical:     6px;
+$padding-base-horizontal:   12px;
+
+$padding-large-vertical:    10px;
+$padding-large-horizontal:  16px;
+
+$padding-small-vertical:    5px;
+$padding-small-horizontal:  10px;
+
+$padding-xs-vertical:       1px;
+$padding-xs-horizontal:     5px;
+
+$padding-small-vertical-custom:    $model-pixel * 5;
+$padding-small-horizontal-custom:  $model-pixel * 18;
+
+$tooltip-bg: $white;
+$tooltip-arrow-color: $white;
+$tooltip-color: $text-color;
+$tooltip-opacity: 1;
+$tooltip-arrow-width: $model-pixel * 10;
+$tooltip-max-width: 300px;
