@@ -46,9 +46,7 @@ Deploy
         * /jquery
         * /bootstrap-sass - https://github.com/twbs/bootstrap-sass
         * /font-awesome - http://fontawesome.io/
-        * /normalize.scss - полезно иметь для проектов без Bootstrap
-        * /slick-carousel - карусель http://kenwheeler.github.io/slick/
-        * /prism - подсветка кода http://prismjs.com/
+        * /normalize.scss
     * /css/ - папка со стилями, которые не требуют препроцессинга
         * sys.css - стили для системных страниц (напр. для web/legacy.html)
     * /font - папка со шрифтами
@@ -70,7 +68,6 @@ Deploy
         * logger.js - логгирование
         * screen-helper.js - модуль для работы с экраном
         * bootstrap-modal.js - модуль для регистрации и компенсации скролла при открытии модальных окон
-        * utils.js - модуль для работы с css
     * /scss - стили, требующие препроцесинга
         * /utils - все переменные и помощники scss
             * _animations.scss - анимации
@@ -86,8 +83,6 @@ Deploy
             * _widgets.scss - более сложные составные виджеты-компоненты
         * /components - стили для кастомизации сторонних модулей
             * _bootstrap.scss - кастомизация bootstrap
-            * _slick.scss - кастомизация slick
-            * _prism.scss - кастомизация prism
             * ...
         * /layout - компоненты основного шаблона — крупные конструктивные части общие для всех страниц!
             * _layout.scss
@@ -106,9 +101,6 @@ Deploy
             * ...
         * base.html - базовый шаблон проекта
         * data.json - файл с переменными для шаблонов
-    * /video - папка с видео проекта
-        /page1 - видео для страницы page1
-        * ...
 * .bowerrc - файл локальной конфигурации bower
 * bower.json - конфигурация bower-пакета
 * Gruntfile.js - конфигурация сборщика проекта Grunt
