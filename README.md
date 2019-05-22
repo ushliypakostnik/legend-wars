@@ -1,14 +1,11 @@
-Skel_scss_bootstrap3_va01 static project
-========================================
+Adaptive rubbe landing with modal
+=================================
+
+ Small freelance. Adaptive rubber landing, for example http://levon.kafedra.org/freelance/legendwars/.
 
 
 Deploy
 ------
-
-Установка системных пакетов
-
-    $ sudo apt-get install nodejs
-    $ sudo apt-get install curl
 
 Установка зависимостей (npm packages, bower packages)
 
@@ -33,10 +30,6 @@ Deploy
 Сборка проекта в продакшен с выгрузкой неминимизированных файлов
 
     $ ./node_modules/.bin/grunt build:dev
-
-Посмотреть обновления для bower
-
-    $ ./node_modules/.bin/bower ls
 
 
 
